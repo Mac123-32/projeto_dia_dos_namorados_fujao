@@ -22,31 +22,52 @@
         }
 
         #sim {
+            height: 40px;
+            width:60px;
+            background-color:red;
+            border: 2px solid white;
+            border-radius:10px;
+            color:white;
+            margin-left: -50px;
+        }
+        #nao {
             position:absolute;
             height: 40px;
             width:60px;
             background-color:red;
-            border:white;
+            border:2px solid white;
             border-radius:10px;
             color:white;
-        }
-        #nao {
-            height: 40px;
-            width:60px;
-            background-color:red;
-            border:white;
-            border-radius:10px;
-            color:white;
-            margin-left: 70px;
+            margin-left: 10px;
         }
     </style>
 </head>
 <body>
     <div class="painel">
         <h1>Feliz Dia dos Namorados</h1>
-        <button id="sim">Sim!</button>
-        <button id="nao">Não!</button>
         <img src="https://gifman.net/wp-content/uploads/2019/06/ursinho-fofo-apaixonado.gif" alt="gif urso coracao">
+        <h2>Quer namorar comigo?</h2>
+        <button id="sim">Sim!</button>
+        <button onmouseover="runAway()" id="nao">Não!</button>
     </div>
+
+    <script>
+        function runAway() {
+            const fugitive = document.getElementById('nao');
+
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            const maxX = windowWidth - fugitive.offsetWidth;
+            const maxY = windowHeight - fugitive.offsetHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            fugitive.style.left = randomX + 'px';
+            fugitive.style.top = randomY + 'px';
+
+        }
+    </script>
 </body>
 </html>
